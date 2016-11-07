@@ -1,0 +1,30 @@
+﻿@model DN.RepoAdo.Application.Commands.CreatedStore
+
+@{ 
+    ViewData["Title"] = "Cadastrar Nova Loja";
+}
+
+<h2>Nova Loja</h2>
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
+<div class="form-horizontal">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.Label("Bairro", null, new { @class = "control-label" })
+            @Html.TextBoxFor(x => x.DistrictName, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Ativo", null, new { @class = "control-label" })
+            @Html.CheckBoxFor(x => x.IsActive)
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Cadastrar" class="btn btn-info btn-lg" />
+        </div>
+
+    }
+
+</div>

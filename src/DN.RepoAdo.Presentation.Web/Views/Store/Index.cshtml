@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DN.RepoAdo.Application.Commands.GridStore>
+
+@{
+    ViewData["Title"] = "Lojas Cadastradas";
+}
+
+<h2>Lojas Cadastradas</h2>
+
+<div class="row">
+    <div class="form-group">
+        <input class="btn btn-info" onclick="novaLoja();" value="Nova Loja" />
+    </div>
+</div>
+<div class="row">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Bairro</th>
+                <th>Ativo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DistrictName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    function novaLoja() {
+        window.location = '@Url.Action("Create", "Store")';
+    }
+</script>
